@@ -1,0 +1,1 @@
+Welcome to Echobox.  Echobox is a Sinatra web app that accepts messages at any route and echos back all parameters in a json response as well as success => true by default (override as a query string parameter).  Echobox is useful for testing applications that consume and send JSON.
