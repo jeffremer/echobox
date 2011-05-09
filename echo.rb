@@ -3,8 +3,11 @@ if ENV['RACK_ENV'] != 'production'
 end
 
 require 'json'
+require "rdiscount"
 require 'sinatra'
 require 'sinatra/jsonp'
+
+set :views, File.dirname(__FILE__)
 
 def format_response(params, source)
   response = {
@@ -18,6 +21,11 @@ end
 
 before do
   content_type :json
+end
+
+get '/README' do
+  content_type :html
+  markdown :README
 end
 
 get '/*?', :provides => :json do
